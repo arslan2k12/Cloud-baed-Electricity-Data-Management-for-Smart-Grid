@@ -1,0 +1,2098 @@
+[
+    {
+        "id": "c1f7df8f.81d1",
+        "type": "tab",
+        "label": "Cloud"
+    },
+    {
+        "id": "d572b4c8.ea3f18",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house01",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 49,
+        "wires": [
+            [
+                "a8f266f4.1f6538",
+                "33b64b47.4f5144"
+            ]
+        ]
+    },
+    {
+        "id": "a8f266f4.1f6538",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml1",
+        "func": "context.global.xml1=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data01.currentload[0]>thresh && msg.payload.d.data01.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data01.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 199,
+        "y": 50,
+        "wires": [
+            [
+                "829b4265.57084"
+            ]
+        ]
+    },
+    {
+        "id": "829b4265.57084",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home01",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 49,
+        "wires": []
+    },
+    {
+        "id": "33b64b47.4f5144",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 49,
+        "wires": []
+    },
+    {
+        "id": "3a85f51e.401f0a",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house02",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 105,
+        "wires": [
+            [
+                "b2f71198.3158b",
+                "202aa42e.8474bc"
+            ]
+        ]
+    },
+    {
+        "id": "b2f71198.3158b",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml2",
+        "func": "context.global.xml2=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data02.currentload[0]>thresh && msg.payload.d.data02.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data02.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 197,
+        "y": 106,
+        "wires": [
+            [
+                "cb9eb46b.e90f68"
+            ]
+        ]
+    },
+    {
+        "id": "cb9eb46b.e90f68",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home02",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 357,
+        "y": 105,
+        "wires": []
+    },
+    {
+        "id": "202aa42e.8474bc",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 105,
+        "wires": []
+    },
+    {
+        "id": "9c2e5ff0.1faae",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house03",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 160,
+        "wires": [
+            [
+                "67d4c21b.475d6c",
+                "c848414.0c4e9c"
+            ]
+        ]
+    },
+    {
+        "id": "67d4c21b.475d6c",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml3",
+        "func": "context.global.xml3=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data03.currentload[0]>thresh && msg.payload.d.data03.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data03.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 199,
+        "y": 161,
+        "wires": [
+            [
+                "27d0692d.0a7fc6"
+            ]
+        ]
+    },
+    {
+        "id": "27d0692d.0a7fc6",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home03",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c848414.0c4e9c",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f3cdc320.3087b",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house04",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 216,
+        "wires": [
+            [
+                "992a125e.b276d",
+                "6d658443.5300ec"
+            ]
+        ]
+    },
+    {
+        "id": "992a125e.b276d",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml4",
+        "func": "context.global.xml4=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data04.currentload[0]>thresh && msg.payload.d.data04.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data04.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 197,
+        "y": 217,
+        "wires": [
+            [
+                "656eed82.e67164"
+            ]
+        ]
+    },
+    {
+        "id": "656eed82.e67164",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home04",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 357,
+        "y": 216,
+        "wires": []
+    },
+    {
+        "id": "6d658443.5300ec",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 216,
+        "wires": []
+    },
+    {
+        "id": "4d03cb6c.54d1b4",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house05",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 59,
+        "y": 273,
+        "wires": [
+            [
+                "cdf7ba5d.011278",
+                "90ec57db.e79a18"
+            ]
+        ]
+    },
+    {
+        "id": "cdf7ba5d.011278",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml5",
+        "func": "context.global.xml5=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data05.currentload[0]>thresh && msg.payload.d.data05.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data05.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 201,
+        "y": 274,
+        "wires": [
+            [
+                "3a3e4397.cfecfc"
+            ]
+        ]
+    },
+    {
+        "id": "3a3e4397.cfecfc",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home05",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 361,
+        "y": 273,
+        "wires": []
+    },
+    {
+        "id": "90ec57db.e79a18",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 512,
+        "y": 273,
+        "wires": []
+    },
+    {
+        "id": "79724d44.151ea4",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house06",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 329,
+        "wires": [
+            [
+                "822594af.ed5918",
+                "b5c9c98e.5a6138"
+            ]
+        ]
+    },
+    {
+        "id": "822594af.ed5918",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml6",
+        "func": "context.global.xml6=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data06.currentload[0]>thresh && msg.payload.d.data06.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data06.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 199,
+        "y": 330,
+        "wires": [
+            [
+                "fc93700c.8b0da"
+            ]
+        ]
+    },
+    {
+        "id": "fc93700c.8b0da",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home06",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 329,
+        "wires": []
+    },
+    {
+        "id": "b5c9c98e.5a6138",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 329,
+        "wires": []
+    },
+    {
+        "id": "eb98dfdb.e2cd5",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house07",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 59,
+        "y": 384,
+        "wires": [
+            [
+                "ab21df23.2ce94",
+                "95252859.046728"
+            ]
+        ]
+    },
+    {
+        "id": "ab21df23.2ce94",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml7",
+        "func": "context.global.xml7=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data07.currentload[0]>thresh && msg.payload.d.data07.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data07.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 201,
+        "y": 385,
+        "wires": [
+            [
+                "c885d404.120558"
+            ]
+        ]
+    },
+    {
+        "id": "c885d404.120558",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home07",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 361,
+        "y": 384,
+        "wires": []
+    },
+    {
+        "id": "95252859.046728",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 512,
+        "y": 384,
+        "wires": []
+    },
+    {
+        "id": "780704ab.38fd1c",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house08",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 440,
+        "wires": [
+            [
+                "9c83dd6a.44d4b",
+                "e64afa4.edd9308"
+            ]
+        ]
+    },
+    {
+        "id": "9c83dd6a.44d4b",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml8",
+        "func": "context.global.xml8=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data08.currentload[0]>thresh && msg.payload.d.data08.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data08.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 200,
+        "y": 441,
+        "wires": [
+            [
+                "7d60434e.02704c"
+            ]
+        ]
+    },
+    {
+        "id": "7d60434e.02704c",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home08",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e64afa4.edd9308",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "330deccc.b47f64",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house09",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 58,
+        "y": 499,
+        "wires": [
+            [
+                "b477a32c.3749f",
+                "81ee4d38.9e4a"
+            ]
+        ]
+    },
+    {
+        "id": "b477a32c.3749f",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml9",
+        "func": "context.global.xml9=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data09.currentload[0]>thresh && msg.payload.d.data09.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data09.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 201,
+        "y": 500,
+        "wires": [
+            [
+                "4ec258a7.90af98"
+            ]
+        ]
+    },
+    {
+        "id": "4ec258a7.90af98",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home09",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 360,
+        "y": 499,
+        "wires": []
+    },
+    {
+        "id": "81ee4d38.9e4a",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 511,
+        "y": 499,
+        "wires": []
+    },
+    {
+        "id": "aa523975.0092a8",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house10",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 554,
+        "wires": [
+            [
+                "ab767f32.bc9c9",
+                "b238bdca.40caf"
+            ]
+        ]
+    },
+    {
+        "id": "ab767f32.bc9c9",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml10",
+        "func": "context.global.xml10=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data10.currentload[0]>thresh && msg.payload.d.data10.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data10.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 200,
+        "y": 555,
+        "wires": [
+            [
+                "795b2ed0.de42d"
+            ]
+        ]
+    },
+    {
+        "id": "795b2ed0.de42d",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home10",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 554,
+        "wires": []
+    },
+    {
+        "id": "b238bdca.40caf",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 554,
+        "wires": []
+    },
+    {
+        "id": "2ad94be5.8dada4",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house11",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 610,
+        "wires": [
+            [
+                "e0cfc8ce.460c78",
+                "e1728513.52f9f8"
+            ]
+        ]
+    },
+    {
+        "id": "e0cfc8ce.460c78",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml11",
+        "func": "context.global.xml11=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data11.currentload[0]>thresh && msg.payload.d.data11.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data11.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 198,
+        "y": 611,
+        "wires": [
+            [
+                "35567f01.32b3d"
+            ]
+        ]
+    },
+    {
+        "id": "35567f01.32b3d",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home11",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 357,
+        "y": 610,
+        "wires": []
+    },
+    {
+        "id": "e1728513.52f9f8",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 610,
+        "wires": []
+    },
+    {
+        "id": "4a34fd3c.d116a4",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house12",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 59,
+        "y": 667,
+        "wires": [
+            [
+                "e5f0f703.11a2d8",
+                "dc6aecfa.a70b9"
+            ]
+        ]
+    },
+    {
+        "id": "e5f0f703.11a2d8",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml12",
+        "func": "context.global.xml12=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data12.currentload[0]>thresh && msg.payload.d.data12.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data12.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 202,
+        "y": 668,
+        "wires": [
+            [
+                "44ed7d4e.db2004"
+            ]
+        ]
+    },
+    {
+        "id": "44ed7d4e.db2004",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home12",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 361,
+        "y": 667,
+        "wires": []
+    },
+    {
+        "id": "dc6aecfa.a70b9",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 512,
+        "y": 667,
+        "wires": []
+    },
+    {
+        "id": "2d5ee552.587d7a",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house13",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 723,
+        "wires": [
+            [
+                "146a8b89.d87574",
+                "af177671.2571d8"
+            ]
+        ]
+    },
+    {
+        "id": "146a8b89.d87574",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml13",
+        "func": "context.global.xml13=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data13.currentload[0]>thresh && msg.payload.d.data13.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data13.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 200,
+        "y": 724,
+        "wires": [
+            [
+                "ddf8632.0bc91a"
+            ]
+        ]
+    },
+    {
+        "id": "ddf8632.0bc91a",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home13",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 723,
+        "wires": []
+    },
+    {
+        "id": "af177671.2571d8",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 723,
+        "wires": []
+    },
+    {
+        "id": "6899ec8.2049814",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house14",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 59,
+        "y": 778,
+        "wires": [
+            [
+                "3ee01656.dba39a",
+                "17c498e6.cd8887"
+            ]
+        ]
+    },
+    {
+        "id": "3ee01656.dba39a",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml14",
+        "func": "context.global.xml14=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data14.currentload[0]>thresh && msg.payload.d.data14.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data14.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 202,
+        "y": 779,
+        "wires": [
+            [
+                "c4723cea.3eb48"
+            ]
+        ]
+    },
+    {
+        "id": "c4723cea.3eb48",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home14",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 361,
+        "y": 778,
+        "wires": []
+    },
+    {
+        "id": "17c498e6.cd8887",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 512,
+        "y": 778,
+        "wires": []
+    },
+    {
+        "id": "940f6587.929728",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house15",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 834,
+        "wires": [
+            [
+                "36f436d3.8b4bda",
+                "35ab5928.b57696"
+            ]
+        ]
+    },
+    {
+        "id": "36f436d3.8b4bda",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml15",
+        "func": "context.global.xml15=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data15.currentload[0]>thresh && msg.payload.d.data15.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data15.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 200,
+        "y": 835,
+        "wires": [
+            [
+                "e3a4ba.b087ab48"
+            ]
+        ]
+    },
+    {
+        "id": "e3a4ba.b087ab48",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home15",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 834,
+        "wires": []
+    },
+    {
+        "id": "35ab5928.b57696",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 834,
+        "wires": []
+    },
+    {
+        "id": "f91d6176.32733",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house16",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 897,
+        "wires": [
+            [
+                "82467a79.1edcb8",
+                "5e0a5242.e00e6c"
+            ]
+        ]
+    },
+    {
+        "id": "82467a79.1edcb8",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml16",
+        "func": "context.global.xml16=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data16.currentload[0]>thresh && msg.payload.d.data16.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data16.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 200,
+        "y": 898,
+        "wires": [
+            [
+                "5adb12.155944f"
+            ]
+        ]
+    },
+    {
+        "id": "5adb12.155944f",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home16",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 897,
+        "wires": []
+    },
+    {
+        "id": "5e0a5242.e00e6c",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 897,
+        "wires": []
+    },
+    {
+        "id": "32bddf5b.8e5d5",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house17",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 953,
+        "wires": [
+            [
+                "a52e0499.4f5868",
+                "46d5432b.4ed2dc"
+            ]
+        ]
+    },
+    {
+        "id": "a52e0499.4f5868",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml17",
+        "func": "context.global.xml17=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data17.currentload[0]>thresh && msg.payload.d.data17.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data17.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 194,
+        "y": 954,
+        "wires": [
+            [
+                "7e3dc1d8.d0cad"
+            ]
+        ]
+    },
+    {
+        "id": "7e3dc1d8.d0cad",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "Device01",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "TA-1",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 357,
+        "y": 953,
+        "wires": []
+    },
+    {
+        "id": "46d5432b.4ed2dc",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 953,
+        "wires": []
+    },
+    {
+        "id": "c01276fd.d598a8",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house18",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 1006,
+        "wires": [
+            [
+                "ddfa91b.a9bcf7",
+                "7275a01e.f500b"
+            ]
+        ]
+    },
+    {
+        "id": "ddfa91b.a9bcf7",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml18",
+        "func": "context.global.xml18=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data18.currentload[0]>thresh && msg.payload.d.data18.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data18.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 194,
+        "y": 1007,
+        "wires": [
+            [
+                "b321aeb4.d9b6a"
+            ]
+        ]
+    },
+    {
+        "id": "b321aeb4.d9b6a",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home18",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 357,
+        "y": 1006,
+        "wires": []
+    },
+    {
+        "id": "7275a01e.f500b",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 1006,
+        "wires": []
+    },
+    {
+        "id": "82edea83.4aec88",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house19",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 59,
+        "y": 1063,
+        "wires": [
+            [
+                "246945df.93c1da",
+                "40fc35b3.29fb5c"
+            ]
+        ]
+    },
+    {
+        "id": "246945df.93c1da",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml19",
+        "func": "context.global.xml19=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data19.currentload[0]>thresh && msg.payload.d.data19.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data19.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 198,
+        "y": 1064,
+        "wires": [
+            [
+                "489ff631.a8c288"
+            ]
+        ]
+    },
+    {
+        "id": "489ff631.a8c288",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home19",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 361,
+        "y": 1063,
+        "wires": []
+    },
+    {
+        "id": "40fc35b3.29fb5c",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 512,
+        "y": 1063,
+        "wires": []
+    },
+    {
+        "id": "3a1fbe84.eb5a02",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house20",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 1119,
+        "wires": [
+            [
+                "919b86fc.ea5388",
+                "fb5c8e71.b9867"
+            ]
+        ]
+    },
+    {
+        "id": "919b86fc.ea5388",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml20",
+        "func": "context.global.xml20=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data20.currentload[0]>thresh && msg.payload.d.data20.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data20.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 196,
+        "y": 1120,
+        "wires": [
+            [
+                "42389df8.8329b4"
+            ]
+        ]
+    },
+    {
+        "id": "42389df8.8329b4",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home20",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 358,
+        "y": 1116,
+        "wires": []
+    },
+    {
+        "id": "fb5c8e71.b9867",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 1119,
+        "wires": []
+    },
+    {
+        "id": "da8d1dc3.37fec",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house21",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 59,
+        "y": 1174,
+        "wires": [
+            [
+                "43c39d2b.3be364",
+                "17fb5b95.1811a4"
+            ]
+        ]
+    },
+    {
+        "id": "43c39d2b.3be364",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml21",
+        "func": "context.global.xml21=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data21.currentload[0]>thresh && msg.payload.d.data21.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data21.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 198,
+        "y": 1175,
+        "wires": [
+            [
+                "b515e501.f43408"
+            ]
+        ]
+    },
+    {
+        "id": "b515e501.f43408",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home21",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 361,
+        "y": 1174,
+        "wires": []
+    },
+    {
+        "id": "17fb5b95.1811a4",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 512,
+        "y": 1174,
+        "wires": []
+    },
+    {
+        "id": "8c1add93.52838",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house22",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 1230,
+        "wires": [
+            [
+                "dd6d77d1.712638",
+                "b4c8fed3.d2eed"
+            ]
+        ]
+    },
+    {
+        "id": "dd6d77d1.712638",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml22",
+        "func": "context.global.xml22=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data22.currentload[0]>thresh && msg.payload.d.data22.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data22.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 196,
+        "y": 1231,
+        "wires": [
+            [
+                "28bc29a9.ef0a66"
+            ]
+        ]
+    },
+    {
+        "id": "28bc29a9.ef0a66",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home22",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 1230,
+        "wires": []
+    },
+    {
+        "id": "b4c8fed3.d2eed",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 1230,
+        "wires": []
+    },
+    {
+        "id": "56f2ad58.c13cc4",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house25",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 1389,
+        "wires": [
+            [
+                "27d39ecd.076ba2",
+                "944d3619.adbe28"
+            ]
+        ]
+    },
+    {
+        "id": "27d39ecd.076ba2",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml25",
+        "func": "context.global.xml25=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data25.currentload[0]>thresh && msg.payload.d.data25.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data25.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 191,
+        "y": 1389,
+        "wires": [
+            [
+                "bc50d3e1.9fe13",
+                "9ee33ff2.90b75"
+            ]
+        ]
+    },
+    {
+        "id": "bc50d3e1.9fe13",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "main function",
+        "func": "var house=[];\nhouse.push(context.global.xml1.payload.d.data01);\nhouse.push(context.global.xml2.payload.d.data02);\nhouse.push(context.global.xml3.payload.d.data03);\nhouse.push(context.global.xml4.payload.d.data04);\nhouse.push(context.global.xml5.payload.d.data05);\nhouse.push(context.global.xml6.payload.d.data06);\nhouse.push(context.global.xml7.payload.d.data07);\nhouse.push(context.global.xml8.payload.d.data08);\nhouse.push(context.global.xml9.payload.d.data09);\nhouse.push(context.global.xml10.payload.d.data10);\nhouse.push(context.global.xml11.payload.d.data11);\nhouse.push(context.global.xml12.payload.d.data12);\nhouse.push(context.global.xml13.payload.d.data13);\nhouse.push(context.global.xml14.payload.d.data14);\nhouse.push(context.global.xml15.payload.d.data15);\nhouse.push(context.global.xml16.payload.d.data16);\nhouse.push(context.global.xml17.payload.d.data17);\nhouse.push(context.global.xml18.payload.d.data18);\nhouse.push(context.global.xml19.payload.d.data19);\nhouse.push(context.global.xml20.payload.d.data20);\nhouse.push(context.global.xml21.payload.d.data21);\nhouse.push(context.global.xml22.payload.d.data22);\nhouse.push(context.global.xml23.payload.d.data23);\nhouse.push(context.global.xml24.payload.d.data24);\nhouse.push(context.global.xml25.payload.d.data25);\n\nvar numHouse=house.length;\nvar numHouse1=house.length-1;\n\nvar opAll=\"Present Load\\n(Current in Amperes)\\n\";\nvar warn=\"Warnings (if any):\\n\";\nvar maxLoad=0;\nvar minLoad=0;\nvar lowHouse;\nvar highHouse;\nvar threshold=200;\ncontext.global.threshold=threshold;\n\nfor (i=0; i<numHouse1;i++)\n{\n    if(i===0)\n    {\n        maxLoad=parseFloat(house[i].currentload[0]);\n        highHouse=i;\n    }\n    if(parseFloat(house[i+1].currentload[0])>maxLoad)\n    {\n        maxLoad=parseFloat(house[i+1].currentload[0]);\n        highHouse=i+1;\n    }\n}\n\nfor (j=0; j<numHouse1;j++)\n{\n    if(j===0)\n    {\n        minLoad=parseFloat(house[j].currentload[0]);\n        lowHouse=j;\n    }\n    if(parseFloat(house[j+1].currentload[0])<minLoad)\n    {\n        minLoad=parseFloat(house[j+1].currentload[0]);\n        lowHouse=j+1;\n    }\n}\n\nfor(i=0;i<numHouse;i++)\n{\n    opAll+=\"\\nHouse # \"+i+ \" = \"+parseFloat(house[i].currentload[0]);\n    if(parseFloat(house[i].currentload[0])>threshold && house[i].negociate[0]!=\"Yes\")\n    {\n        warn+= \"\\nWarning for House # \"+ i;\n        warn+= \"\\nPresent Load: \"+ house[i].currentload[0];\n        warn+= \"\\nMaximum allowable load: \"+threshold+\" Ampere\\n\";\n    }\n}\n\n\nvar op1 = \"Highest Load:\\nHouse: \"+(highHouse+1)+\"\\n\"+\"Current: \"+maxLoad+\" Ampere\";\nvar op2 = \"\\n\\nLowest Load:\\nHouse: \"+(lowHouse+1)+\"\\n\"+\"Current: \"+minLoad+\" Ampere\";\n\nout={ payload: opAll};\nout1={ payload: op1+op2};\nout2={ payload:  JSON.stringify(warn)};\n\nreturn [out, out1, out2];",
+        "outputs": "3",
+        "noerr": 0,
+        "x": 180,
+        "y": 1454,
+        "wires": [
+            [
+                "1ff251e1.152b3e"
+            ],
+            [
+                "a3b97c9.c5d088"
+            ],
+            [
+                "aaa67665.dbf5f8"
+            ]
+        ]
+    },
+    {
+        "id": "9ee33ff2.90b75",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home25",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 360,
+        "y": 1392,
+        "wires": []
+    },
+    {
+        "id": "aaa67665.dbf5f8",
+        "type": "json",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "x": 179,
+        "y": 1527,
+        "wires": [
+            [
+                "29ac139e.60d41c"
+            ]
+        ]
+    },
+    {
+        "id": "17bda81e.5881f8",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "Warnings",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 521,
+        "y": 1531,
+        "wires": []
+    },
+    {
+        "id": "944d3619.adbe28",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 1392,
+        "wires": []
+    },
+    {
+        "id": "55b03a4f.374724",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house23",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 57,
+        "y": 1284,
+        "wires": [
+            [
+                "ab49b464.717198",
+                "7763b986.ec0458"
+            ]
+        ]
+    },
+    {
+        "id": "ab49b464.717198",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml23",
+        "func": "context.global.xml23=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data23.currentload[0]>thresh && msg.payload.d.data23.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data23.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 196,
+        "y": 1285,
+        "wires": [
+            [
+                "fb110635.bbb2b8"
+            ]
+        ]
+    },
+    {
+        "id": "fb110635.bbb2b8",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home23",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 359,
+        "y": 1284,
+        "wires": []
+    },
+    {
+        "id": "7763b986.ec0458",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 510,
+        "y": 1284,
+        "wires": []
+    },
+    {
+        "id": "5895682b.8691c8",
+        "type": "ibmiot in",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "TA-1",
+        "applicationId": "",
+        "deviceType": "iotsample-devicetype",
+        "eventType": "house24",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allEvents": false,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 55,
+        "y": 1340,
+        "wires": [
+            [
+                "e32b4e02.94f9c",
+                "ad2c76ad.88f488"
+            ]
+        ]
+    },
+    {
+        "id": "e32b4e02.94f9c",
+        "type": "function",
+        "z": "c1f7df8f.81d1",
+        "name": "xml24",
+        "func": "context.global.xml24=msg;\n\nvar thresh=context.global.threshold;\n\nvar newMsg=JSON.parse(JSON.stringify(msg));\n\nif(msg.payload.d.data24.currentload[0]>thresh && msg.payload.d.data24.negociate[0]==\"Yes\")\n{\n  newMsg.payload.d.data24.currentload[0]=thresh;\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 194,
+        "y": 1341,
+        "wires": [
+            [
+                "b420f821.c574a8"
+            ]
+        ]
+    },
+    {
+        "id": "b420f821.c574a8",
+        "type": "ibmiot out",
+        "z": "c1f7df8f.81d1",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "TA-1",
+        "deviceType": "iotsample-devicetype",
+        "eventCommandType": "home24",
+        "format": "json",
+        "data": "",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 357,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "ad2c76ad.88f488",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 508,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "5c47047e.cb406c",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "Min Max",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 519,
+        "y": 1483,
+        "wires": []
+    },
+    {
+        "id": "29ac139e.60d41c",
+        "type": "delay",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 364,
+        "y": 1529,
+        "wires": [
+            [
+                "17bda81e.5881f8"
+            ]
+        ]
+    },
+    {
+        "id": "a3b97c9.c5d088",
+        "type": "delay",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 362,
+        "y": 1485,
+        "wires": [
+            [
+                "5c47047e.cb406c"
+            ]
+        ]
+    },
+    {
+        "id": "bb59482a.011b78",
+        "type": "debug",
+        "z": "c1f7df8f.81d1",
+        "name": "All load",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 518,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "1ff251e1.152b3e",
+        "type": "delay",
+        "z": "c1f7df8f.81d1",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 365,
+        "y": 1446,
+        "wires": [
+            [
+                "bb59482a.011b78"
+            ]
+        ]
+    }
+]

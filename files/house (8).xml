@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../stylingxml.xsl"?>
+<data08>
+ <homeid>08</homeid>
+ <currentload>251.9</currentload> <!-- kWh -->
+ <forecastload>2.5</forecastload> <!-- kWh -->
+ <negociate>No</negociate> <!-- 0=No 1=Yes -->
+ <negociateload>Full</negociateload> <!-- 0=N/A, 1=Partial, 2=Full -->
+ <greenenergy>1</greenenergy>
+</data08>
