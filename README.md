@@ -1,5 +1,5 @@
 # Cloud-baed-Electricity-Data-Management-for-Smart-Grid
-Course Project: Internet of Things, 2017
+Course Project: Internet of Things
 
 Our main objectives presented in Project Report are the following:
 1.	An overview of Smart Grids and how it is changing the traditional electric grid system.
